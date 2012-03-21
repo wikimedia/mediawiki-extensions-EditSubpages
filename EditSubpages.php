@@ -14,7 +14,7 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'EditSubpages',
 	'descriptionmsg' => 'editsubpages-desc',
-	'author' => array( '<span class="plainlinks\>[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
+	'author' => array( '<span class="plainlinks">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:EditSubpages',
 	'version' => '3.1',
 );
