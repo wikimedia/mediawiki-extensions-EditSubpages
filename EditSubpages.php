@@ -5,18 +5,18 @@
 * via MediaWiki:Unlockedpages
 */
 
-if(!defined('MEDIAWIKI')) {
-	echo('This file is an extension to the MediaWiki software and cannot be used standalone');
-	die(1);
+if( !defined( 'MEDIAWIKI' ) ) {
+	echo 'This file is an extension to the MediaWiki software and cannot be used standalone';
+	die( 1 );
 }
 
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
-	'name' => "EditSubpages",
+	'name' => 'EditSubpages',
 	'descriptionmsg' => 'editsubpages-desc',
-	'author' => "<span class=\"plainlinks\">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt] and [http://strategywiki.org/wiki/User:Prod Prod]</span>",
-	'url' => "http://www.mediawiki.org/wiki/Extension:EditSubpages",
-	'version' => "3.0",
+	'author' => array( '<span class="plainlinks\>[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
+	'url' => 'https://www.mediawiki.org/wiki/Extension:EditSubpages',
+	'version' => '3.0',
 );
 
 $wgHooks['userCan'][] = 'EditSubpages';
@@ -27,10 +27,10 @@ $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['EditSubpages'] = $dir .'EditSubpages.i18n.php';
 $evEditSubpagesCache = array();
 
-function EditSubpages($title, $user, $action, $result) {
+function EditSubpages( $title, $user, $action, $result ) {
 	global $evEditSubpagesCache;
 	$pagename = $title->getText(); //name of page w/ spaces, not underscores
-	if(!array_key_exists('pagename', $evEditSubpagesCache) || $pagename != $evEditSubpagesCache['pagename']) {
+	if( !array_key_exists( 'pagename', $evEditSubpagesCache ) || $pagename != $evEditSubpagesCache['pagename'] ) {
 		$ns = $title->getNsText(); //namespace
 		if( $title->isTalkPage() ) {
 			$ns = $title->getTalkNsText();
@@ -63,10 +63,11 @@ function EditSubpages($title, $user, $action, $result) {
 			'loggedin' => $user->isLoggedIn(),
 		);
 	}
-	if(($action == 'edit' || $action == 'submit')){
-		foreach($evEditSubpagesCache['pages'] as $value) {
-			if( strpos( $value, '*' ) === false || strpos( $value, '*' ) !== 0 )
+	if( ( $action == 'edit' || $action == 'submit' ) ){
+		foreach( $evEditSubpagesCache['pages'] as $value ) {
+			if( strpos( $value, '*' ) === false || strpos( $value, '*' ) !== 0 ) {
 				continue; // "*" doesn't start the line, so treat it as a comment (aka skip over it)
+			}
 			$flags = array( 's' => 1, 'c' => 1, 't' => 1, 'e' => 1, 'b' => 0, 'u' => 0, 'i' => 0, 'n' => 0, 'r' => 0, 'w' => 0 ); //default flags
 			$value = trim( trim( trim( trim( $value ), "*[]" ) ), "*[]" );
 			/* flags
@@ -81,60 +82,64 @@ function EditSubpages($title, $user, $action, $result) {
 			 * r = regex fragment
 			 * w = wildcard matching
 			*/
-			$pieces = explode('|', $value, 3);
-			if( isset($pieces[1]) && strpos($pieces[1], '+') === 0 ) {
+			$pieces = explode( '|', $value, 3 );
+			if( isset( $pieces[1] ) && strpos( $pieces[1], '+' ) === 0 ) {
 				//flag parsing
-				$flaglist1 = explode('+', $pieces[1], 2);
-				if(isset($flaglist1[1])) {
-					$flaglist2 = explode('-', $flaglist1[1], 2);
+				$flaglist1 = explode( '+', $pieces[1], 2 );
+				if( isset( $flaglist1[1] ) ) {
+					$flaglist2 = explode( '-', $flaglist1[1], 2 );
 				} else {
-					$flaglist2 = explode('-', $pieces[1], 2);
+					$flaglist2 = explode( '-', $pieces[1], 2 );
 				}
-				$flagpos = str_split($flaglist2[0]);
-				if(isset($flaglist2[1])) {
-					$flagneg = str_split($flaglist2[1]);
+				$flagpos = str_split( $flaglist2[0] );
+				if( isset( $flaglist2[1] ) ) {
+					$flagneg = str_split( $flaglist2[1] );
 				} else {
-					$flagneg = array('');
+					$flagneg = array( '' );
 				}
-				foreach($flagpos as $flag) {
+				foreach( $flagpos as $flag ) {
 					$flags[$flag] = 1;
 				}
-				foreach($flagneg as $flag) {
+				foreach( $flagneg as $flag ) {
 					$flags[$flag] = 0;
 				}
 			}
-			$found = checkPage($pieces[0], $evEditSubpagesCache['text'], $flags);
-			if(!$found && $flags['n'])
-				$found = checkPage($pieces[0], $evEditSubpagesCache['pagename'], $flags);
+			$found = checkPage( $pieces[0], $evEditSubpagesCache['text'], $flags );
+			if(!$found && $flags['n']) {
+				$found = checkPage( $pieces[0], $evEditSubpagesCache['pagename'], $flags );
+			}
 			if(!$found && $flags['t']) {
-				$newtitle = Title::newFromText($pieces[0]);
+				$newtitle = Title::newFromText( $pieces[0] );
 				//make sure that it's a valid title
 				if( $newtitle instanceOf Title && !$newtitle->isTalkPage() ) {
 					$talk = $newtitle->getTalkPage();
 					$talkpage = $talk->getPrefixedText();
-					$found = checkPage($talkpage, $evEditSubpagesCache['talktext'], $flags);
-					if(!$found)
-						$found = checkPage($talkpage, $evEditSubpagesCache['text'], $flags);
+					$found = checkPage( $talkpage, $evEditSubpagesCache['talktext'], $flags );
+					if( !$found ) {
+						$found = checkPage( $talkpage, $evEditSubpagesCache['text'], $flags );
+					}
 				}
 			}
-			if(!$found)
+			if( !$found ) {
 				continue;
+			}
 				
-			if(!$flags['u'] && $evEditSubpagesCache['loggedin'])
+			if( !$flags['u'] && $evEditSubpagesCache['loggedin'] ) {
 				return true;
+			}
 			//the page matches, now process it and let the software know whether or not to allow the user to do this action
-			if(!$flags['c'] && !$newtitle->exists()) {
+			if( !$flags['c'] && !$newtitle->exists() ) {
 				$result = false;
 				return false;
 			}
-			if(!$flags['e'] && $newtitle->exists()) {
+			if( !$flags['e'] && $newtitle->exists() ) {
 				$result = false;
 				return false;
 			}
 			$result = true;
 			return false;
 		}
-		if(!$evEditSubpagesCache['loggedin']) {
+		if( !$evEditSubpagesCache['loggedin'] ) {
 			$result = false;
 			return false;
 		}
@@ -142,7 +147,7 @@ function EditSubpages($title, $user, $action, $result) {
 	return true;
 }
 
-function checkPage($page, $check, $flags) {
+function checkPage( $page, $check, $flags ) {
 	if( $flags['w'] && !$flags['r'] ) {
 		$flags['r'] = 1;
 		$page = preg_quote( $page, '/' );
@@ -164,14 +169,17 @@ function checkPage($page, $check, $flags) {
 		return preg_match( '/^' . $page . '$/' . $i, $check );
 	}
 	if( $flags['i'] ) {
-		$page = strtolower($page);
-		$check = strtolower($check);
+		$page = strtolower( $page );
+		$check = strtolower( $check );
 	}
-	if( $page == $check )
+	if( $page == $check ) {
 		return true;
-	if( $flags['s'] && strpos( $check, $page . '/' ) === 0 )
+	}
+	if( $flags['s'] && strpos( $check, $page . '/' ) === 0 ) {
 		return true;
-	if( $flags['b'] && strpos( $page, $check . '/' ) === 0 )
+	}
+	if( $flags['b'] && strpos( $page, $check . '/' ) === 0 ) {
 		return true;
+	}
 	return false;
 }
