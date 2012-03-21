@@ -16,19 +16,25 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'editsubpages-desc',
 	'author' => array( '<span class="plainlinks\>[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:EditSubpages',
-	'version' => '3.0',
+	'version' => '3.1',
 );
 
-$wgHooks['userCan'][] = 'EditSubpages';
+$wgHooks['userCan'][] = 'ExtEditSubpages::EditSubpages';
 $wgGroupPermissions['*']['edit'] = true;
 $wgGroupPermissions['*']['createpage'] = true;
 $wgGroupPermissions['*']['createtalk'] = true;
+$wgEditSubpagesDefaultFlags = '+scte-buinrw';
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['EditSubpages'] = $dir .'EditSubpages.i18n.php';
 $evEditSubpagesCache = array();
 
-function EditSubpages( $title, $user, $action, $result ) {
+class ExtEditSubpages {
+
+public static function EditSubpages( $title, $user, $action, $result ) {
 	global $evEditSubpagesCache;
+	if( $title->getNamespace() < 0 ) {
+		return true; //don't operate on "special" namespaces
+	}
 	$pagename = $title->getText(); //name of page w/ spaces, not underscores
 	if( !array_key_exists( 'pagename', $evEditSubpagesCache ) || $pagename != $evEditSubpagesCache['pagename'] ) {
 		$ns = $title->getNsText(); //namespace
@@ -38,7 +44,7 @@ function EditSubpages( $title, $user, $action, $result ) {
 		} else {
 			$nstalk = $title->getTalkNsText();
 		}
-		if($ns == '') {
+		if( $ns == '' ) {
 			$text = $pagename;
 		} else {
 			$text = $ns . ":" . $pagename;
@@ -49,9 +55,9 @@ function EditSubpages( $title, $user, $action, $result ) {
 			$talktext = $pagename;
 		}
 		//underscores -> spaces
-		$ns = str_replace('_', ' ', $ns);
-		$nstalk = str_replace('_', ' ', $nstalk);
-		$pages = explode ("\n", wfMsg ('unlockedpages')); //grabs MediaWiki:Unlockedpages
+		$ns = str_replace( '_', ' ', $ns );
+		$nstalk = str_replace( '_', ' ', $nstalk );
+		$pages = explode( "\n", wfMsg( 'unlockedpages' ) ); //grabs MediaWiki:Unlockedpages
 		//cache the values so future checks on the same page take less time
 		$evEditSubpagesCache = array(
 			'pagename' => $pagename,
@@ -68,7 +74,15 @@ function EditSubpages( $title, $user, $action, $result ) {
 			if( strpos( $value, '*' ) === false || strpos( $value, '*' ) !== 0 ) {
 				continue; // "*" doesn't start the line, so treat it as a comment (aka skip over it)
 			}
-			$flags = array( 's' => 1, 'c' => 1, 't' => 1, 'e' => 1, 'b' => 0, 'u' => 0, 'i' => 0, 'n' => 0, 'r' => 0, 'w' => 0 ); //default flags
+			global $wgEditSubpagesDefaultFlags;
+			if( !is_array( $wgEditSubpagesDefaultFlags ) ) {
+				$config_flags = self::parseFlags( $wgEditSubpagesDefaultFlags );
+			} else {
+				$config_flags = $wgEditSubpagesDefaultFlags;
+			}
+			//also hardcode the default flags just in case they are not set in $config_flags
+			$default_flags = array( 's' => 1, 'c' => 1, 't' => 1, 'e' => 1, 'b' => 0, 'u' => 0, 'i' => 0, 'n' => 0, 'r' => 0, 'w' => 0 );
+			$flags = array_merge( $default_flags, $config_flags );
 			$value = trim( trim( trim( trim( $value ), "*[]" ) ), "*[]" );
 			/* flags
 			 * s = unlock subpages
@@ -83,40 +97,22 @@ function EditSubpages( $title, $user, $action, $result ) {
 			 * w = wildcard matching
 			*/
 			$pieces = explode( '|', $value, 3 );
-			if( isset( $pieces[1] ) && strpos( $pieces[1], '+' ) === 0 ) {
-				//flag parsing
-				$flaglist1 = explode( '+', $pieces[1], 2 );
-				if( isset( $flaglist1[1] ) ) {
-					$flaglist2 = explode( '-', $flaglist1[1], 2 );
-				} else {
-					$flaglist2 = explode( '-', $pieces[1], 2 );
-				}
-				$flagpos = str_split( $flaglist2[0] );
-				if( isset( $flaglist2[1] ) ) {
-					$flagneg = str_split( $flaglist2[1] );
-				} else {
-					$flagneg = array( '' );
-				}
-				foreach( $flagpos as $flag ) {
-					$flags[$flag] = 1;
-				}
-				foreach( $flagneg as $flag ) {
-					$flags[$flag] = 0;
-				}
+			if( isset( $pieces[1] ) ) {
+				$flags = array_merge( $flags, self::parseFlags( $pieces[1] ) );
 			}
-			$found = checkPage( $pieces[0], $evEditSubpagesCache['text'], $flags );
-			if(!$found && $flags['n']) {
-				$found = checkPage( $pieces[0], $evEditSubpagesCache['pagename'], $flags );
+			$found = self::checkPage( $pieces[0], $evEditSubpagesCache['text'], $flags );
+			if( !$found && $flags['n'] ) {
+				$found = self::checkPage( $pieces[0], $evEditSubpagesCache['pagename'], $flags );
 			}
-			if(!$found && $flags['t']) {
+			if( !$found && $flags['t'] ) {
 				$newtitle = Title::newFromText( $pieces[0] );
 				//make sure that it's a valid title
 				if( $newtitle instanceOf Title && !$newtitle->isTalkPage() ) {
 					$talk = $newtitle->getTalkPage();
 					$talkpage = $talk->getPrefixedText();
-					$found = checkPage( $talkpage, $evEditSubpagesCache['talktext'], $flags );
+					$found = self::checkPage( $talkpage, $evEditSubpagesCache['talktext'], $flags );
 					if( !$found ) {
-						$found = checkPage( $talkpage, $evEditSubpagesCache['text'], $flags );
+						$found = self::checkPage( $talkpage, $evEditSubpagesCache['text'], $flags );
 					}
 				}
 			}
@@ -147,7 +143,33 @@ function EditSubpages( $title, $user, $action, $result ) {
 	return true;
 }
 
-function checkPage( $page, $check, $flags ) {
+/**
+ * Parses a string of flags in the form +blah-blah (or -blah+blah, or +b+l+a+h-b-l-a-h, etc.) into an array
+ * If a flag is encountered multiple times, the - will override the +, regardless of what position it was in originally
+ * If no + or - prefixes a flag, it assumes that it is following the last seen + or -, if it is at the beginning, + is implied
+ * @param $flags String of flags in +- format
+ * @return array of flags with the flag letter as the key and boolean true or false as the value
+ */
+protected static function parseFlags( $flags_string = '' ) {
+	$flags = array(
+		'+' => array(),
+		'-' => array()
+	);
+	$type = '+';
+	$strflags = str_split( $flags_string );
+	foreach( $strflags as $c ) {
+		if( $c == '+' ) {
+			$type = '+';
+		} elseif( $c == '-' ) {
+			$type = '-';
+		} else {
+			$flags[$type][$c] = ( $type == '+' ) ? true : false;
+		}
+	}
+	return array_merge( $flags['+'], $flags['-'] );
+}
+
+protected static function checkPage( $page, $check, $flags ) {
 	if( $flags['w'] && !$flags['r'] ) {
 		$flags['r'] = 1;
 		$page = preg_quote( $page, '/' );
@@ -182,4 +204,6 @@ function checkPage( $page, $check, $flags ) {
 		return true;
 	}
 	return false;
+}
+
 }
