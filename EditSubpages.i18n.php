@@ -83,14 +83,14 @@ $messages['be-tarask'] = array(
   #</pre><!-- leave this line alone -->',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
 	'editsubpages-desc' => 'Позволява на администраторите чрез [[MediaWiki:Unlockedpages]] да свалят защитата на страница и всички нейни подстраници за анонимно редактиране',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -106,7 +106,7 @@ $messages['br'] = array(
   #</pre><!-- lezel al linenn-mañ evel m'emañ -->",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -122,7 +122,7 @@ $messages['bs'] = array(
   #</pre><!-- ne mijenjajte ovaj red -->',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Paucabot
  */
 $messages['ca'] = array(
@@ -138,7 +138,7 @@ $messages['ca'] = array(
  #</pre><!-- deixau aquesta línia -->',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jkjk
  */
 $messages['cs'] = array(
@@ -184,7 +184,7 @@ $messages['el'] = array(
 	'editsubpages-desc' => 'Επιτρέπει στους διαχειριστές να ξεκλειδώσουν μια σελίδα και όλα τις υποσελίδες για ανώνυμη επεξεργασία με [[MediaWiki:Unlockedpages]]',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Sanbec
  */
@@ -201,7 +201,7 @@ $messages['es'] = array(
   #</pre><!-- deje esta línea como está -->',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Jack Phoenix
  * @author Nike
@@ -219,7 +219,7 @@ $messages['fi'] = array(
   #</pre><!-- älä koske tähän riviin -->',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Grondin
  * @author PieRRoMaN
@@ -302,7 +302,7 @@ $messages['hsb'] = array(
   #</pre><!-- tutu linku njezměnjenu wostajić -->',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  */
 $messages['hu'] = array(
@@ -318,7 +318,7 @@ $messages['hu'] = array(
   #</pre><!-- ezt a sort hagyd így -->',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -350,7 +350,7 @@ $messages['id'] = array(
   #</pre><!-- jangan mengubah baris ini -->',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Darth Kule
  * @author Pietrodn
  */
@@ -369,18 +369,35 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Fryed-peach
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'editsubpages-desc' => '管理者が [[MediaWiki:Unlockedpages]] を使い、ページとそのすべてのサブページを匿名の編集からロック解除できるようにする',
+	'editsubpages-desc' => '管理者が [[MediaWiki:Unlockedpages]] を使い、ページとそのすべての下位ページを匿名の編集からロック解除できるようにする',
 	'unlockedpages' => ' #<!-- leave this line alone --><pre>
 # ロック解除したいページを以下に次の形式で列挙してください
 # * ページ名
-# ロック解除されたページは集計のために必ず * ではじめてください
-# その他はすべてコメントとみなされます
+# ロック解除されたページは集計のために必ず * で始めてください
+# その他はすべてコメントと見なされます
 # ページ名は[[リンク]]の形式も可能で大文字・小文字を区別します
 # また、ノートページは付随して自動的にロック解除されます
 # より詳しくは http://www.mediawiki.org/wiki/Extension:EditSubpages を参照してください
   #</pre><!-- leave this line alone -->',
+);
+
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'editsubpages-desc' => '[[MediaWiki:Unlockedpages]]를 통해 익명이 편집하는 문서와 모든 하위 문서에 관리자가 잠금 해제를 하도록 허용',
+	'unlockedpages' => ' #<!-- 이 줄은 그대로 두십시오 --><pre>
+# 사용하는 아래에 잠금을 해제하려는 페이지를 넣으세요
+# * 문서이름
+# 잠금 해제 페이지가 집계되는 순서 없는 목록으로 시작하며,
+# 다른 모든 것들은 덧글로 간주합니다
+# 문서이름은 [[링크]]되어 있을 수 있으며 대소문자를 구분합니다
+# 또한 토론 문서는 해당 페이지가 자동으로 잠금이 해제됩니다
+# 자세한 정보는 http://www.mediawiki.org/wiki/Extension:EditSubpages 를 참고하세요
+ #</pre><!-- 이 줄은 그대로 두십시오 -->',
 );
 
 /** Colognian (Ripoarisch)
@@ -418,7 +435,7 @@ $messages['lb'] = array(
   #</pre><!-- Dës Zeil net änneren -->",
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author Xil
  */
 $messages['lv'] = array(
@@ -433,7 +450,7 @@ $messages['lv'] = array(
  # </pre><!-- šo līniju neaiztikt -->',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -522,7 +539,7 @@ $messages['nl'] = array(
   #</pre><!-- deze regel niet wijzigen -->",
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -540,7 +557,7 @@ $messages['nn'] = array(
    #</pre><!-- lat denne linja vera som ho er -->',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -556,7 +573,7 @@ $messages['oc'] = array(
  #</pre><!-- Daissatz aquesta linha tala coma es -->',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -588,7 +605,7 @@ $messages['pms'] = array(
   #</pre><!-- leave this line alone -->",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  * @author Malafaya
  */
@@ -605,7 +622,7 @@ $messages['pt'] = array(
   #</pre><!-- deixe esta linha como está -->',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  */
 $messages['pt-br'] = array(
@@ -621,14 +638,14 @@ $messages['pt-br'] = array(
    #</pre><!-- deixe esta linha como está -->",
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
 	'editsubpages-desc' => 'Permite administratorilor să deblocheze o pagină și toate subpaginile ei pentru modificare anonimă via [[MediaWiki:Unlockedpages]]',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -644,7 +661,7 @@ $messages['roa-tara'] = array(
   #</pre><!-- Lasse sta linea sole -->",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -660,7 +677,7 @@ $messages['ru'] = array(
   #</pre><!-- не трогайте эту строчку -->',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -676,7 +693,7 @@ $messages['sk'] = array(
   #</pre><!-- nechajte tento riadok ako je -->',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Charmed94
  * @author Обрадовић Горан
  */
@@ -693,7 +710,7 @@ $messages['sr-ec'] = array(
  #</pre><!-- leave this line alone -->',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -725,7 +742,7 @@ $messages['su'] = array(
  #</pre><!-- baris ieu ulah dirobah -->',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author M.M.S.
  * @author Micke
  * @author Sannab
@@ -793,7 +810,7 @@ $messages['tr'] = array(
   #</pre><!-- bu satıra dokunmayın -->',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  */
 $messages['uk'] = array(
@@ -842,7 +859,7 @@ $messages['vo'] = array(
   #</pre><!-- leave this line alone -->',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Gaoxuewei
  */
 $messages['zh-hans'] = array(
@@ -858,7 +875,7 @@ $messages['zh-hans'] = array(
   #</pre><!-- 本行需要保留 -->',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Liangent
  * @author Mark85296341
  */
