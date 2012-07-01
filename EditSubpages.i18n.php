@@ -66,7 +66,7 @@ $messages['arz'] = array(
   #</pre><!-- اترك هذا السطر بمفرده -->',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -161,7 +161,7 @@ $messages['de'] = array(
  #</pre><!-- Diese Zeile nicht verändern -->',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -237,7 +237,7 @@ $messages['fr'] = array(
   #</pre><!-- Laisser cette ligne telle quelle -->',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -285,7 +285,7 @@ $messages['he'] = array(
   #</pre><!-- אין לערוך שורה זו -->',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
