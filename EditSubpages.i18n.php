@@ -505,8 +505,7 @@ $messages['ms'] = array(
  #</pre><!-- jangan usik baris ini -->',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
