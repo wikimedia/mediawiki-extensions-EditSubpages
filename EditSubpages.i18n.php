@@ -66,7 +66,7 @@ $messages['arz'] = array(
   #</pre><!-- اترك هذا السطر بمفرده -->',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -505,7 +505,7 @@ $messages['ms'] = array(
  #</pre><!-- jangan usik baris ini -->',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -538,7 +538,7 @@ $messages['nl'] = array(
   #</pre><!-- deze regel niet wijzigen -->",
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -692,7 +692,7 @@ $messages['sk'] = array(
   #</pre><!-- nechajte tento riadok ako je -->',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Charmed94
  * @author Обрадовић Горан
  */
@@ -709,7 +709,7 @@ $messages['sr-ec'] = array(
  #</pre><!-- leave this line alone -->',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -858,7 +858,7 @@ $messages['vo'] = array(
   #</pre><!-- leave this line alone -->',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gaoxuewei
  */
 $messages['zh-hans'] = array(
@@ -874,7 +874,7 @@ $messages['zh-hans'] = array(
   #</pre><!-- 本行需要保留 -->',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Liangent
  * @author Mark85296341
  */
