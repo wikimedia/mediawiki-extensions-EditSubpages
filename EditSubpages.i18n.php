@@ -890,4 +890,3 @@ $messages['zh-hant'] = array(
 # 請瀏覽 http://www.mediawiki.org/wiki/Extension:EditSubpages 以取得更多說明
   #</pre><!-- 本行需要保留 -->',
 );
-
