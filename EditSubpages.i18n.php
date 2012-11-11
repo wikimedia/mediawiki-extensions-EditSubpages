@@ -26,11 +26,12 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Purodha
+ * @author Shirayuki
  * @author Siebrand
  * @author The Evil IP address
  */
 $messages['qqq'] = array(
-	'editsubpages-desc' => '{{desc}}',
+	'editsubpages-desc' => '{{desc|name=Edit Subpages|url=http://www.mediawiki.org/wiki/Extension:EditSubpages}}',
 	'unlockedpages' => "Leave all the wiki markup, including the spaces, as is. You can translate the text, including 'Leave this line exactly as it is'. The first line of this messages has one (1) leading space.",
 );
 
