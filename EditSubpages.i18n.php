@@ -529,7 +529,23 @@ $messages['nl'] = array(
 	'editsubpages-desc' => "Geeft beheerders de mogelijkheid een pagina en alle subpagina's van die pagina te deblokkeren voor anoniem bewekren via [[MediaWiki:Unlockedpages]]",
 	'unlockedpages' => " #<!-- deze regel niet wijzigen --><pre>
 # Zet pagina's die u wilt vrijgeven hieronder als volgt:
-# * pagename
+# * paginanaam
+# Vrijgegeven pagina's moeten als ongenummerde lijst worden toegevoegd,
+# anders worden ze genegeerd. Alle overige tekst wordt behandeld als
+# Opmerkingen. Paginanamen kunnen [[link|verwijzing]]en zijn, en zijn hoofdlettergevoelig.
+# Overlegpagina's worden automatisch vrijgegeven voor hun bijbehorende
+# pagina's. Zie http://www.mediawiki.org/wiki/Extension:EditSubpages voor
+# meer informatie.
+  #</pre><!-- deze regel niet wijzigen -->",
+);
+
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'unlockedpages' => " #<!-- deze regel niet wijzigen --><pre>
+# Zet pagina's die je wilt vrijgeven hieronder als volgt:
+# * paginanaam
 # Vrijgegeven pagina's moeten als ongenummerde lijst worden toegevoegd,
 # anders worden ze genegeerd. Alle overige tekst wordt behandeld als
 # Opmerkingen. Paginanamen kunnen [[link|verwijzing]]en zijn, en zijn hoofdlettergevoelig.
