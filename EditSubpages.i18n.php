@@ -532,7 +532,7 @@ $messages['nl'] = array(
 # * paginanaam
 # Vrijgegeven pagina's moeten als ongenummerde lijst worden toegevoegd,
 # anders worden ze genegeerd. Alle overige tekst wordt behandeld als
-# Opmerkingen. Paginanamen kunnen [[link|verwijzing]]en zijn, en zijn hoofdlettergevoelig.
+# Opmerkingen. Paginanamen kunnen [[link|koppeling]]en zijn, en zijn hoofdlettergevoelig.
 # Overlegpagina's worden automatisch vrijgegeven voor hun bijbehorende
 # pagina's. Zie http://www.mediawiki.org/wiki/Extension:EditSubpages voor
 # meer informatie.
@@ -548,7 +548,7 @@ $messages['nl-informal'] = array(
 # * paginanaam
 # Vrijgegeven pagina's moeten als ongenummerde lijst worden toegevoegd,
 # anders worden ze genegeerd. Alle overige tekst wordt behandeld als
-# Opmerkingen. Paginanamen kunnen [[link|verwijzing]]en zijn, en zijn hoofdlettergevoelig.
+# Opmerkingen. Paginanamen kunnen [[link|koppeling]]en zijn, en zijn hoofdlettergevoelig.
 # Overlegpagina's worden automatisch vrijgegeven voor hun bijbehorende
 # pagina's. Zie http://www.mediawiki.org/wiki/Extension:EditSubpages voor
 # meer informatie.
