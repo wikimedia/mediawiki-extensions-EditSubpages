@@ -16,7 +16,7 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'editsubpages-desc',
 	'author' => array( '<span class="plainlinks">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:EditSubpages',
-	'version' => '3.1',
+	'version' => '3.2',
 );
 
 $wgHooks['userCan'][] = 'ExtEditSubpages::EditSubpages';
@@ -30,7 +30,7 @@ $evEditSubpagesCache = array();
 
 class ExtEditSubpages {
 
-public static function EditSubpages( $title, $user, $action, $result ) {
+public static function EditSubpages( $title, $user, $action, &$result ) {
 	global $evEditSubpagesCache;
 	if( $title->getNamespace() < 0 ) {
 		return true; //don't operate on "special" namespaces
