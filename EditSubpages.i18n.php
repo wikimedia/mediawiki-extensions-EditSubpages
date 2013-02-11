@@ -67,6 +67,22 @@ $messages['arz'] = array(
   #</pre><!-- اترك هذا السطر بمفرده -->',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'editsubpages-desc' => 'Permite a los alministradores desbloquiar una páxina y toles subpáxines pa edición anónima con [[MediaWiki:Unlockedpages]]',
+	'unlockedpages' => "  #<!-- dexe esta llinia como ta --><pre>
+# Ponga más abaxo les páxines que quiera desprotexer usando
+# * Nomedelapáxina
+# Les páxines desprotexíes han comenzar con asteriscu (*) para que se cuenten,
+# tolo demás considerase un comentariu
+# Los nomes de les páxines puen ser [[enllaces]] y distinguen ente mayúscules y minúscules
+# Tamién, les páxines d'alderique desprotexeránse automáticamente cola páxina
+# Ver http://www.mediawiki.org/wiki/Extension:EditSubpages pa más información
+  #</pre><!-- dexe esta llinia como ta -->",
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
