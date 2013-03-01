@@ -467,6 +467,22 @@ $messages['lv'] = array(
  # </pre><!-- šo līniju neaiztikt -->',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'editsubpages-desc' => 'Mangizinkan panguruih untuak mambukan kunci laman jo sagalo sub lamannyo dari suntiangan anonim malalui [[MediaWiki:Unlockedpages]]',
+	'unlockedpages' => '  #<!-- jan maubah barih ko --><pre>
+# Latak laman nan ka dibukak kuncinyo di bawah ko manggunoan
+# * Namo laman
+# Laman nan ka dibukak kuncinyo musti diawali jo *,
+# nan indak diawali jo * akan dianggap sabagai komen
+# Namo laman dapek barupo [[pautan]] dan huruf gadang/ketek bapangaruah
+# Laman rundiangnyo pun akan otomatis tabukak kuncinyo basamo-samo jo laman tasabuik
+# Labiah lanjuik caliak http://www.mediawiki.org/wiki/Extension:EditSubpages
+  #</pre><!-- jan maubah barih ko -->',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
