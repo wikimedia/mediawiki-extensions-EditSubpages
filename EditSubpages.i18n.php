@@ -538,7 +538,7 @@ $messages['ms'] = array(
  #</pre><!-- jangan usik baris ini -->',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -587,7 +587,7 @@ $messages['nl-informal'] = array(
   #</pre><!-- deze regel niet wijzigen -->",
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Njardarlogar
  */
