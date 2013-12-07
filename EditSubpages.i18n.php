@@ -155,7 +155,7 @@ $messages['ca'] = array(
  #</pre><!-- deixau aquesta línia -->',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Jkjk
  */
 $messages['cs'] = array(
