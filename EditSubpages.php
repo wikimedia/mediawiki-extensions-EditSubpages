@@ -16,7 +16,7 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'editsubpages-desc',
 	'author' => array( '<span class="plainlinks">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:EditSubpages',
-	'version' => '3.2',
+	'version' => '3.3.0',
 );
 
 $wgHooks['userCan'][] = 'ExtEditSubpages::EditSubpages';
@@ -25,6 +25,7 @@ $wgGroupPermissions['*']['createpage'] = true;
 $wgGroupPermissions['*']['createtalk'] = true;
 $wgEditSubpagesDefaultFlags = '+scte-buinrw';
 $dir = dirname(__FILE__) . '/';
+$wgMessagesDirs['EditSubpages'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['EditSubpages'] = $dir .'EditSubpages.i18n.php';
 $evEditSubpagesCache = array();
 
@@ -119,7 +120,7 @@ public static function EditSubpages( $title, $user, $action, &$result ) {
 			if( !$found ) {
 				continue;
 			}
-				
+
 			if( !$flags['u'] && $evEditSubpagesCache['loggedin'] ) {
 				return true;
 			}
