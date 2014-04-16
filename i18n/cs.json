@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jkjk"
-        ]
-    },
-    "editsubpages-desc": "Umožnit správcům odblokovat stránku a její podstránky pro anonymní editování pomocí [[MediaWiki:Unlockedpages]]"
+	"@metadata": {
+		"authors": [
+			"Jkjk"
+		]
+	},
+	"editsubpages-desc": "Umožnit správcům odblokovat stránku a její podstránky pro anonymní editování pomocí [[MediaWiki:Unlockedpages]]"
 }
