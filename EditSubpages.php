@@ -17,7 +17,7 @@ $wgExtensionCredits['other'][] = array(
 	'author' => array( '<span class="plainlinks">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:EditSubpages',
 	'version' => '3.4.0',
-	'license-name' => 'GPLv2'
+	'license-name' => 'GPL-2.0'
 );
 
 $wgHooks['userCan'][] = 'ExtEditSubpages::EditSubpages';
