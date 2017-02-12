@@ -1,0 +1,34 @@
+{
+	"name": "EditSubpages",
+	"version": "3.5.0",
+	"author": [
+		"<span class=\"plainlinks\">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>",
+		"<span class=\"plainlinks\">[http://strategywiki.org/wiki/User:Prod Prod]</span>"
+	],
+	"license-name": "GPL-2.0",
+	"url": "https://www.mediawiki.org/wiki/Extension:EditSubpages",
+	"descriptionmsg": "editsubpages-desc",
+	"type": "other",
+	"MessagesDirs": {
+		"EditSubpages": [
+			"i18n"
+		]
+	},
+	"config": {
+		"EditSubpagesDefaultFlags": "+scte-buinrw"
+	},
+	"AutoloadClasses": {
+		"ExtEditSubpages": "ExtEditSubpages.class.php"
+	},
+	"Hooks": {
+		"userCan": "ExtEditSubpages::EditSubpages"
+	},
+	"GroupPermissions": {
+		"*": {
+			"edit": true,
+			"createpage": true,
+			"createtalk": true
+		}
+	},
+	"manifest_version": 1
+}

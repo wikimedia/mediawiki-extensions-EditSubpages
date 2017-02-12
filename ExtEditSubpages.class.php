@@ -1,33 +1,8 @@
 <?php
-
 /**
-* Allows sysops to unlock a page and all subpages of that page for anonymous editing
-* via MediaWiki:Unlockedpages
-*/
-
-if( !defined( 'MEDIAWIKI' ) ) {
-	echo 'This file is an extension to the MediaWiki software and cannot be used standalone';
-	die( 1 );
-}
-
-$wgExtensionCredits['other'][] = array(
-	'path' => __FILE__,
-	'name' => 'EditSubpages',
-	'descriptionmsg' => 'editsubpages-desc',
-	'author' => array( '<span class="plainlinks">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>', '<span class="plainlinks">[http://strategywiki.org/wiki/User:Prod Prod]</span>' ),
-	'url' => 'https://www.mediawiki.org/wiki/Extension:EditSubpages',
-	'version' => '3.4.0',
-	'license-name' => 'GPL-2.0'
-);
-
-$wgHooks['userCan'][] = 'ExtEditSubpages::EditSubpages';
-$wgGroupPermissions['*']['edit'] = true;
-$wgGroupPermissions['*']['createpage'] = true;
-$wgGroupPermissions['*']['createtalk'] = true;
-$wgEditSubpagesDefaultFlags = '+scte-buinrw';
-$wgMessagesDirs['EditSubpages'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['EditSubpages'] = __DIR__ .'/EditSubpages.i18n.php';
-
+ * Allows sysops to unlock a page and all subpages of that page for anonymous editing
+ * via MediaWiki:Unlockedpages
+ */
 class ExtEditSubpages {
 	private static $cache = array();
 
@@ -41,7 +16,7 @@ class ExtEditSubpages {
 		$pagename = $title->getText(); // name of page w/ spaces, not underscores
 
 		if ( !isset( self::$cache['pagename'] ) || $pagename != self::$cache['pagename'] ) {
-			$ns = $title->getNsText(); //namespace
+			$ns = $title->getNsText(); // namespace
 
 			if ( $title->isTalkPage() ) {
 				$ns = $title->getTalkNsText();
@@ -53,11 +28,11 @@ class ExtEditSubpages {
 			if ( $ns == '' ) {
 				$text = $pagename;
 			} else {
-				$text = $ns . ":" . $pagename;
+				$text = $ns . ':' . $pagename;
 			}
 
 			if ( $nstalk != '' ) {
-				$talktext = $nstalk . ":" . $pagename;
+				$talktext = $nstalk . ':' . $pagename;
 			} else {
 				$talktext = $pagename;
 			}
@@ -105,7 +80,7 @@ class ExtEditSubpages {
 					'w' => false, // wildcard matching
 				);
 				$flags = array_merge( $default_flags, $config_flags );
-				$value = trim( trim( trim( trim( $value ), "*[]" ) ), "*[]" );
+				$value = trim( trim( trim( trim( $value ), '*[]' ) ), '*[]' );
 				$pieces = explode( '|', $value, 3 );
 
 				if ( isset( $pieces[1] ) ) {
@@ -170,7 +145,8 @@ class ExtEditSubpages {
 	 * Parses a string of flags in the form +blah-blah (or -blah+blah, or +b+l+a+h-b-l-a-h, etc.) into an array
 	 * If a flag is encountered multiple times, the - will override the +, regardless of what position it was in originally
 	 * If no + or - prefixes a flag, it assumes that it is following the last seen + or -, if it is at the beginning, + is implied
-	 * @param $flags String of flags in +- format
+	 *
+	 * @param string $flags Flags in +- format
 	 * @return array of flags with the flag letter as the key and boolean true or false as the value
 	 */
 	protected static function parseFlags( $flags_string = '' ) {
