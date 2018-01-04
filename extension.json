@@ -5,7 +5,7 @@
 		"<span class=\"plainlinks\">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>",
 		"<span class=\"plainlinks\">[http://strategywiki.org/wiki/User:Prod Prod]</span>"
 	],
-	"license-name": "GPL-2.0",
+	"license-name": "GPL-2.0-only",
 	"url": "https://www.mediawiki.org/wiki/Extension:EditSubpages",
 	"descriptionmsg": "editsubpages-desc",
 	"type": "other",
