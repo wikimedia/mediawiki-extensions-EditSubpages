@@ -99,7 +99,7 @@ class ExtEditSubpages {
 					$found = self::checkPage( $pieces[0], self::$cache['pagename'], $flags );
 				}
 			
-				if ( !$found && $flags['t'] && !$newtitle->isTalkPage() ) {
+				if ( !$found && $flags['t'] && !$newtitle->isTalkPage() && $newtitle->canHaveTalkPage() ) {
 					$talk = $newtitle->getTalkPage();
 					$talkpage = $talk->getPrefixedText();
 					$found = self::checkPage( $talkpage, self::$cache['talktext'], $flags );
