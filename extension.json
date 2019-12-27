@@ -18,7 +18,7 @@
 		"EditSubpagesDefaultFlags": "+scte-buinrw"
 	},
 	"AutoloadClasses": {
-		"ExtEditSubpages": "ExtEditSubpages.class.php"
+		"ExtEditSubpages": "ExtEditSubpages.php"
 	},
 	"Hooks": {
 		"userCan": "ExtEditSubpages::EditSubpages"

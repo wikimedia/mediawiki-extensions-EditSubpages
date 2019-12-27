@@ -4,7 +4,7 @@
  * via MediaWiki:Unlockedpages
  */
 class ExtEditSubpages {
-	private static $cache = array();
+	private static $cache = [];
 
 	public static function EditSubpages( $title, $user, $action, &$result ) {
 		global $wgEditSubpagesDefaultFlags;
@@ -43,7 +43,7 @@ class ExtEditSubpages {
 			$pages = explode( "\n", wfMessage( 'unlockedpages' )->plain() );
 
 			// cache the values so future checks on the same page take less time
-			self::$cache = array(
+			self::$cache = [
 				'pagename' => $pagename,
 				'ns' => $ns,
 				'nstalk' => $nstalk,
@@ -51,7 +51,7 @@ class ExtEditSubpages {
 				'talktext' => $talktext,
 				'pages' => $pages,
 				'loggedin' => $user->isLoggedIn(),
-			);
+			];
 		}
 
 		if ( $action == 'edit' || $action == 'submit' ) {
@@ -67,7 +67,7 @@ class ExtEditSubpages {
 				}
 
 				// also hardcode the default flags just in case they are not set in $config_flags
-				$default_flags = array(
+				$default_flags = [
 					's' => true,  // unlock subpages
 					'c' => true,  // allow page creation
 					't' => true,  // unlock talk pages
@@ -78,7 +78,7 @@ class ExtEditSubpages {
 					'n' => false, // namespace inspecific
 					'r' => false, // regex fragment
 					'w' => false, // wildcard matching
-				);
+				];
 				$flags = array_merge( $default_flags, $config_flags );
 				$value = trim( trim( trim( trim( $value ), '*[]' ) ), '*[]' );
 				$pieces = explode( '|', $value, 3 );
@@ -98,7 +98,7 @@ class ExtEditSubpages {
 				if ( !$found && $flags['n'] ) {
 					$found = self::checkPage( $pieces[0], self::$cache['pagename'], $flags );
 				}
-			
+
 				if ( !$found && $flags['t'] && !$newtitle->isTalkPage() && $newtitle->canHaveTalkPage() ) {
 					$talk = $newtitle->getTalkPage();
 					$talkpage = $talk->getPrefixedText();
@@ -146,14 +146,14 @@ class ExtEditSubpages {
 	 * If a flag is encountered multiple times, the - will override the +, regardless of what position it was in originally
 	 * If no + or - prefixes a flag, it assumes that it is following the last seen + or -, if it is at the beginning, + is implied
 	 *
-	 * @param string $flags Flags in +- format
+	 * @param string $flags_string Flags in +- format
 	 * @return array of flags with the flag letter as the key and boolean true or false as the value
 	 */
 	protected static function parseFlags( $flags_string = '' ) {
-		$flags = array(
-			'+' => array(),
-			'-' => array()
-		);
+		$flags = [
+			'+' => [],
+			'-' => []
+		];
 		$type = '+';
 		$strflags = str_split( $flags_string );
 
@@ -174,7 +174,7 @@ class ExtEditSubpages {
 		if ( $flags['r'] ) {
 			$i = ( $flags['i'] ) ? 'i' : '';
 			if ( strpos( $page, '#' ) !== false ) {
-				return false; // # isn't valid in pagenames anyway	
+				return false; // # isn't valid in pagenames anyway
 			}
 
 			return preg_match( '#^' . $page . '$#' . $i, $check );
