@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nghtwlkr",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Nghtwlkr"
 		]
 	},
 	"editsubpages-desc": "Lar administratorer låse opp en side og alle dens undersider for endringer av uregistrerte via [[MediaWiki:Unlockedpages]]",

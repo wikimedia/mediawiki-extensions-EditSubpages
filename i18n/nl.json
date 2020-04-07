@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand",
-			"Ooswesthoesbes"
+			"Ooswesthoesbes",
+			"Siebrand"
 		]
 	},
 	"editsubpages-desc": "Geeft beheerders de mogelijkheid een pagina en alle subpagina's van die pagina te deblokkeren voor anoniem bewerken via [[MediaWiki:Unlockedpages]]",

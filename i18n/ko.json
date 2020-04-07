@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"아라",
-			"Ykhwong"
+			"Ykhwong",
+			"아라"
 		]
 	},
 	"editsubpages-desc": "[[MediaWiki:Unlockedpages]]를 통해 익명이 편집하는 문서와 모든 하위 문서에 관리자가 잠금 해제를 하도록 허용",

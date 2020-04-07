@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"LNDDYL",
 			"Liangent",
-			"Mark85296341",
 			"Liuxinyu970226",
-			"LNDDYL"
+			"Mark85296341"
 		]
 	},
 	"editsubpages-desc": "允許系統管理員透過[[MediaWiki:Unlockedpages]]將一個頁面及其子頁面解除封鎖，以便任何使用者都可以編輯。",
