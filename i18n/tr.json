@@ -6,5 +6,5 @@
 		]
 	},
 	"editsubpages-desc": "Hizmetlilerin [[MediaWiki:Unlockedpages]] üzerinden bir sayfayı ve sayfaya ait tüm alt sayfaları anonim değişikliğe açmasını sağlar",
-	"unlockedpages": "  #<!-- bu satıra dokunmayın --><pre>\n# Korumasını kaldırmak istediğiniz sayfaları aşağıdaki formatta ekleyin\n# * Sayfa adı\n# Koruması kaldırılan sayfaların sayılması için bir bullet ile başlaması gerekmektedir,\n# diğer girdiler yorum kabul edilecektir\n# Sayfa adları [[bağlantı]] olmalı ve büyük-küçük harflere dikkat edilmelidir\n# Ayrıca tartışma sayfalarının koruması da sayfa ile birlikte otomatik olarak kaldırılacaktır\n# Daha fazla bilgi için https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:EditSubpages sayfasına bakın\n  #</pre><!-- bu satıra dokunmayın -->"
+	"unlockedpages": "  #<!-- bu satıra dokunmayın --><pre>\n# Aşağıdaki kullanarak kilidini açmak istediğiniz sayfaları yerleştirin\n# * Sayfa adı\n# Kilitlenmemiş sayfaların sayılması için bir madde işaretiyle başlaması gerekir,\n# diğer her şey bir yorum olarak kabul edilir\n# Sayfa adları [[links|bağlantılar]] olabilir ve büyük/küçük harfe duyarlıdır\n# Ayrıca, tartışma sayfalarının kilidi sayfa ile otomatik olarak açılacaktır\n# Daha fazla bilgi için https://www.mediawiki.org/wiki/Extension:EditSubpages/tr sayfasına bakın\n  #</pre><!-- bu satıra dokunmayın -->"
 }
