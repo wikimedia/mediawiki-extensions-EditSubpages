@@ -21,7 +21,7 @@
 		"ExtEditSubpages": "ExtEditSubpages.php"
 	},
 	"Hooks": {
-		"userCan": "ExtEditSubpages::EditSubpages"
+		"userCan": "ExtEditSubpages::editSubpages"
 	},
 	"GroupPermissions": {
 		"*": {
