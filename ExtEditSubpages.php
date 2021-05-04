@@ -4,9 +4,19 @@
  * via MediaWiki:Unlockedpages
  */
 class ExtEditSubpages {
+	/**
+	 * @var array
+	 */
 	private static $cache = [];
 
-	public static function EditSubpages( $title, $user, $action, &$result ) {
+	/**
+	 * @param Title $title
+	 * @param User $user
+	 * @param string $action
+	 * @param bool &$result
+	 * @return bool
+	 */
+	public static function editSubpages( $title, $user, $action, &$result ) {
 		global $wgEditSubpagesDefaultFlags;
 
 		if ( $title->getNamespace() < 0 ) {
@@ -117,7 +127,8 @@ class ExtEditSubpages {
 					return true;
 				}
 
-				// the page matches, now process it and let the software know whether or not to allow the user to do this action
+				// the page matches, now process it and let the software know whether or not to allow the user
+				// to do this action
 				if ( !$flags['c'] && !$newtitle->exists() ) {
 					$result = false;
 					return false;
@@ -143,8 +154,11 @@ class ExtEditSubpages {
 
 	/**
 	 * Parses a string of flags in the form +blah-blah (or -blah+blah, or +b+l+a+h-b-l-a-h, etc.) into an array
-	 * If a flag is encountered multiple times, the - will override the +, regardless of what position it was in originally
-	 * If no + or - prefixes a flag, it assumes that it is following the last seen + or -, if it is at the beginning, + is implied
+	 * If a flag is encountered multiple times, the - will override the +,
+	 * regardless of what position it was in originally.
+	 *
+	 * If no + or - prefixes a flag, it assumes that it is following the last seen + or -,
+	 * if it is at the beginning, + is implied
 	 *
 	 * @param string $flags_string Flags in +- format
 	 * @return array of flags with the flag letter as the key and boolean true or false as the value
@@ -170,6 +184,12 @@ class ExtEditSubpages {
 		return array_merge( $flags['+'], $flags['-'] );
 	}
 
+	/**
+	 * @param WikiPage $page
+	 * @param bool $check
+	 * @param int $flags
+	 * @return bool
+	 */
 	protected static function checkPage( $page, $check, $flags ) {
 		if ( $flags['r'] ) {
 			$i = ( $flags['i'] ) ? 'i' : '';
