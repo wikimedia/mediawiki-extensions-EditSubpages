@@ -60,7 +60,7 @@ class ExtEditSubpages {
 				'text' => $text,
 				'talktext' => $talktext,
 				'pages' => $pages,
-				'loggedin' => $user->isLoggedIn(),
+				'loggedin' => $user->isRegistered(),
 			];
 		}
 
