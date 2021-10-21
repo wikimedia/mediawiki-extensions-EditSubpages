@@ -13,7 +13,7 @@ class ExtEditSubpages {
 	 * @param Title $title
 	 * @param User $user
 	 * @param string $action
-	 * @param bool &$result
+	 * @param array|string|MessageSpecifier &$result
 	 * @return bool
 	 */
 	public static function editSubpages( $title, $user, $action, &$result ) {
