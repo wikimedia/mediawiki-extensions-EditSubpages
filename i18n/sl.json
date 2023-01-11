@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"editsubpages-desc": "Administratorjem pmogoča, da z [[MediaWiki:Unlockedpages]] odklenejo stran in vse podstrani te strani za anonimno urejanje",
+	"unlockedpages": "#<!-- pustite to vrstico pri miru --><pre> \n# Spodaj vnesite strani, ki jih želite odkleniti, z uporabo\n# * Ime strani\n# Odklenjene strani se morajo začeti z oznako, da se štejejo,\n# vse ostalo velja za komentar\n# Imena strani so lahko [[povezave]], ki razlikujejo med velikimi in malimi črkami\n# S stranjo bodo samodejno odklenjene tudi pogovorne strani\n# Za več informacij glejte https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:EditSubpages\n #</pre><!-- pustite to vrstico pri miru -->"
+}
