@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"editsubpages-desc": "Leidžia sysops atrakinti puslapį ir visus to puslapio polapius, kad būtų galima anonimiškai redaguoti naudojant [[MediaWiki:Unlockedpages]]",
+	"unlockedpages": " #<!-- išlaikykite šią liniją --><pre>\n# Nurodykite puslapius, kuriuos norite atrakinti, naudodami\n# * Puslapiopavadinimas\n# Atrakinti puslapiai turi prasidėti su ženklu, kad būtų įskaičiuoti,\n# visa kita laikoma komentaru\n# Puslapiopavadinimas gali būti [[nuorodos]] ir skiriamos didžiosios bei mažosios raidės\n# Taip pat aptarimo puslapiai bus automatiškai atrakinti su puslapiu\n# Žiūrėkite https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:EditSubpages dėl daugiau informacijos\n #</pre><!-- išlaikykite šią liniją -->"
+}
