@@ -78,10 +78,10 @@ class ExtEditSubpages {
 
 				// also hardcode the default flags just in case they are not set in $config_flags
 				$default_flags = [
-					's' => true,  // unlock subpages
-					'c' => true,  // allow page creation
-					't' => true,  // unlock talk pages
-					'e' => true,  // allow editing existing pages
+					's' => true, // unlock subpages
+					'c' => true, // allow page creation
+					't' => true, // unlock talk pages
+					'e' => true, // allow editing existing pages
 					'b' => false, // unlock base pages
 					'u' => false, // apply restrictions to users as well
 					'i' => false, // case insensitive
