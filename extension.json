@@ -1,6 +1,6 @@
 {
 	"name": "EditSubpages",
-	"version": "3.5.0",
+	"version": "3.5.1",
 	"author": [
 		"<span class=\"plainlinks\">[http://strategywiki.org/wiki/User:Ryan_Schmidt Ryan Schmidt]</span>",
 		"<span class=\"plainlinks\">[http://strategywiki.org/wiki/User:Prod Prod]</span>"
@@ -10,7 +10,7 @@
 	"descriptionmsg": "editsubpages-desc",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.34.0"
+		"MediaWiki": ">= 1.39.4"
 	},
 	"MessagesDirs": {
 		"EditSubpages": [

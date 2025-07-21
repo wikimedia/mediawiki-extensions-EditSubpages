@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\Title\Title;
+
 /**
  * Allows sysops to unlock a page and all subpages of that page for anonymous editing
  * via MediaWiki:Unlockedpages
